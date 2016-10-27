@@ -1,7 +1,6 @@
 package com.sakurawood.tabbtnview;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
@@ -15,8 +14,8 @@ import java.util.List;
 public class TabBtn extends LinearLayout {
     private int num;
     private Context context;
-    private int width;
-    private int height;
+    private float width;
+    private float height;
     private int chooseColor;
     private int unchooseColor;
     private List<String> list;
@@ -28,7 +27,7 @@ public class TabBtn extends LinearLayout {
         this.context = context;
     }
 
-    public TabBtn(Context context, int width, int height
+    public TabBtn(Context context, float width, float height
             , int chooseColor, int unchooseColor, List<String> list, boolean isChoosen) {
         super(context);
         this.context = context;
@@ -52,7 +51,12 @@ public class TabBtn extends LinearLayout {
         this.context = context;
     }
 
+    public List<BtnView> getTablist() {
+        return tablist;
+    }
+
     private void show() {
+        setOrientation(HORIZONTAL);
         if (num != 0) {
             if (list != null) {
                 tablist = new ArrayList<>();
@@ -60,12 +64,11 @@ public class TabBtn extends LinearLayout {
                     if (i == 0) {
                         if (isChoosen) {
                             BtnView btnView = new BtnView(context, height, width / num,
-                                    Color.GRAY, Color.WHITE, true, false, true);
-                            btnView.setText(list.get(i));
+                                    chooseColor, unchooseColor, true, false, true);
                             tablist.add(btnView);
                         } else {
                             BtnView btnView = new BtnView(context, height, width / num,
-                                    Color.GRAY, Color.WHITE, true, false, false);
+                                    chooseColor, unchooseColor, true, false, false);
                             btnView.setText(list.get(i));
                             tablist.add(btnView);
                         }
@@ -73,26 +76,22 @@ public class TabBtn extends LinearLayout {
                     } else if (i == num - 1) {
                         if (isChoosen) {
                             BtnView btnView = new BtnView(context, height, width / num,
-                                    Color.GRAY, Color.WHITE, false, true, true);
-                            btnView.setText(list.get(i));
+                                    chooseColor, unchooseColor, false, true, true);
                             tablist.add(btnView);
 
                         } else {
                             BtnView btnView = new BtnView(context, height, width / num,
-                                    Color.GRAY, Color.WHITE, false, true, false);
-                            btnView.setText(list.get(i));
+                                    chooseColor, unchooseColor, false, true, false);
                             tablist.add(btnView);
                         }
                     } else {
                         if (isChoosen) {
                             BtnView btnView = new BtnView(context, height, width / num,
-                                    Color.GRAY, Color.WHITE, false, false, true);
-                            btnView.setText(list.get(i));
+                                    chooseColor, unchooseColor, false, false, true);
                             tablist.add(btnView);
                         } else {
                             BtnView btnView = new BtnView(context, height, width / num,
-                                    Color.GRAY, Color.WHITE, false, false, false);
-                            btnView.setText(list.get(i));
+                                    chooseColor, unchooseColor, false, false, false);
                             tablist.add(btnView);
                         }
                     }

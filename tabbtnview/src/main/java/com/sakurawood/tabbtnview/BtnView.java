@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class BtnView extends TextView {
     private Context context;
-    private int width;
-    private int height;
+    private float width;
+    private float height;
     private int chooseColor;
     private int unchooseColor;
     private boolean isLeft;
@@ -24,7 +24,7 @@ public class BtnView extends TextView {
         super(context);
     }
 
-    public BtnView(Context context, int height, int width, int chooseColor,
+    public BtnView(Context context, float height, float width, int chooseColor,
                    int unchooseColor, boolean isLeft, boolean isRight, boolean isChoosen) {
         super(context);
         this.height = height;
@@ -47,46 +47,59 @@ public class BtnView extends TextView {
         paint.setAlpha(255);
         canvas.drawRoundRect(rectF, ConvertUtils.dp2px(context, (float) height / 5)
                 , ConvertUtils.dp2px(context, (float) height / 5), paint);
+
         if (isLeft) {
             if (isChoosen) {
+                rectF = new RectF(ConvertUtils.dp2px(context, height / 5), 0, ConvertUtils.dp2px(context, width),
+                        ConvertUtils.dp2px(context, height));
+                canvas.drawRoundRect(rectF, 0, 0, paint);
                 paint.setColor(chooseColor);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1)
-                        , ConvertUtils.dp2px(context, height - 1));
+                rectF = new RectF(ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, 1),
+                        ConvertUtils.dp2px(context, width - 1), ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, ConvertUtils.dp2px(context, (float) height / 5 - 1)
                         , ConvertUtils.dp2px(context, (float) height / 5 - 1), paint);
-                rectF = new RectF(ConvertUtils.dp2px(context, height / 5 * 2), 0, ConvertUtils.dp2px(context, width - 1),
-                        ConvertUtils.dp2px(context, height - 1 - height / 5 * 2));
+                rectF = new RectF(ConvertUtils.dp2px(context, height / 5), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1),
+                        ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, 0, 0, paint);
             } else {
+                rectF = new RectF(ConvertUtils.dp2px(context, height / 5), 0, ConvertUtils.dp2px(context, width),
+                        ConvertUtils.dp2px(context, height));
+                canvas.drawRoundRect(rectF, 0, 0, paint);
                 paint.setColor(unchooseColor);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1)
+                rectF = new RectF(ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1)
                         , ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, ConvertUtils.dp2px(context, (float) height / 5 - 1)
                         , ConvertUtils.dp2px(context, (float) height / 5 - 1), paint);
-                rectF = new RectF(ConvertUtils.dp2px(context, height / 5 * 2), 0, ConvertUtils.dp2px(context, width - 1),
-                        ConvertUtils.dp2px(context, height - 1 - height / 5 * 2));
+                rectF = new RectF(ConvertUtils.dp2px(context, height / 5 ), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1),
+                        ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, 0, 0, paint);
             }
         }
 
         if (isRight) {
             if (isChoosen) {
+                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - height / 5),
+                        ConvertUtils.dp2px(context, height));
+                canvas.drawRoundRect(rectF, 0, 0, paint);
                 paint.setColor(chooseColor);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1)
+                rectF = new RectF(ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1)
                         , ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, ConvertUtils.dp2px(context, (float) height / 5 - 1)
                         , ConvertUtils.dp2px(context, (float) height / 5 - 1), paint);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1 - height / 5),
-                        ConvertUtils.dp2px(context, height - 1 - height / 5 * 2));
+                rectF = new RectF(ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1 - height / 5),
+                        ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, 0, 0, paint);
             } else {
+                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - height / 5),
+                        ConvertUtils.dp2px(context, height));
+                canvas.drawRoundRect(rectF, 0, 0, paint);
                 paint.setColor(unchooseColor);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1)
+                rectF = new RectF(ConvertUtils.dp2px(context, 0), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1)
                         , ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, ConvertUtils.dp2px(context, (float) height / 5 - 1)
                         , ConvertUtils.dp2px(context, (float) height / 5 - 1), paint);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1 - height / 5),
-                        ConvertUtils.dp2px(context, height - 1 - height / 5 * 2));
+                rectF = new RectF(ConvertUtils.dp2px(context, 0), ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1 - height / 5),
+                        ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, 0, 0, paint);
             }
         }
@@ -98,8 +111,11 @@ public class BtnView extends TextView {
                         , ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, 0, 0, paint);
             } else {
+                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width),
+                        ConvertUtils.dp2px(context, height));
+                canvas.drawRoundRect(rectF, 0, 0, paint);
                 paint.setColor(unchooseColor);
-                rectF = new RectF(0, 0, ConvertUtils.dp2px(context, width - 1)
+                rectF = new RectF(0, ConvertUtils.dp2px(context, 1), ConvertUtils.dp2px(context, width - 1)
                         , ConvertUtils.dp2px(context, height - 1));
                 canvas.drawRoundRect(rectF, 0, 0, paint);
             }

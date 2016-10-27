@@ -21,11 +21,23 @@ public class MainActivity extends AppCompatActivity {
         List<String> list = new ArrayList<String>() {
             {
                 add("hehe");
+                add("haha");
+                add("heihei");
+                add("huhu");
+                add("haha");
+                add("heihei");
+                add("huhu");
+                add("hehe");
+                add("haha");
+//                add("heihei");
+//                add("huhu");
 //                add("haha");
+//                add("heihei");
+//                add("huhu");
             }
         };
-        tabBtn.setWidth(100).setHeight(60)
-                .setChooseColor(Color.GRAY)
-                .setUnchooseColor(Color.WHITE).setList(list).show();
+        tabBtn.setWidth(300).setHeight(60)
+                .setChooseColor(Color.RED)
+                .setUnchooseColor(Color.BLUE).setList(list).show();
     }
 }
