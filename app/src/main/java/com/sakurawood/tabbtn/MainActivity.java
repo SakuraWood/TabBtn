@@ -39,5 +39,11 @@ public class MainActivity extends AppCompatActivity {
         tabBtn.setWidth(300).setHeight(60)
                 .setChooseColor(Color.RED)
                 .setUnchooseColor(Color.BLUE).setList(list).show();
+        tabBtn.setOnItemClickListener(new TabContainer.OnItemClickListener() {
+            @Override
+            public void onClick(int i) {
+
+            }
+        });
     }
 }

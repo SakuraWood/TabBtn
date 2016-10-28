@@ -148,11 +148,11 @@ public class TabContainer extends RelativeLayout {
         }
     }
 
-    interface OnItemClickListener {
+    public interface OnItemClickListener {
         void onClick(int position);
     }
 
-    interface OnItemLongClickListener {
+    public interface OnItemLongClickListener {
         void onLongClick(int position);
     }
 
