@@ -119,9 +119,9 @@ public class TabContainer extends RelativeLayout {
                                 tabBtn2.getTablist().get(k).setVisibility(INVISIBLE);
                                 textlist.get(k).setTextColor(chooseColor);
                             }
-                            if (onItemClickListener != null) {
-                                onItemClickListener.onClick(k);
-                            }
+                        }
+                        if (onItemClickListener != null) {
+                            onItemClickListener.onClick(j);
                         }
                     }
                 });
@@ -137,9 +137,9 @@ public class TabContainer extends RelativeLayout {
                                 tabBtn2.getTablist().get(k).setVisibility(INVISIBLE);
                                 textlist.get(k).setTextColor(chooseColor);
                             }
-                            if (onItemLongClickListener != null) {
-                                onItemLongClickListener.onLongClick(k);
-                            }
+                        }
+                        if (onItemLongClickListener != null) {
+                            onItemLongClickListener.onLongClick(j);
                         }
                         return false;
                     }

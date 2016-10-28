@@ -3,6 +3,7 @@ package com.sakurawood.tabbtn;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.sakurawood.tabbtnview.TabContainer;
 
@@ -23,12 +24,6 @@ public class MainActivity extends AppCompatActivity {
                 add("hehe");
                 add("haha");
                 add("heihei");
-                add("huhu");
-                add("haha");
-                add("heihei");
-                add("huhu");
-                add("hehe");
-                add("haha");
 //                add("heihei");
 //                add("huhu");
 //                add("haha");
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         tabBtn.setOnItemClickListener(new TabContainer.OnItemClickListener() {
             @Override
             public void onClick(int i) {
-
+                Log.e("hehehhe", i + "  ");
             }
         });
     }
