@@ -52,16 +52,22 @@ public class TabContainer extends RelativeLayout {
     public void show() {
         ViewGroup.LayoutParams layoutParams1;
         if (width != 0 && height != 0) {
-            layoutParams1 = new LayoutParams(ConvertUtils.dp2px(context, layoutwidth),
-                    ConvertUtils.dp2px(context, height));
+            layoutParams1 = getLayoutParams();
+            layoutParams1.width = ConvertUtils.dp2px(context, layoutwidth);
+            layoutParams1.height = ConvertUtils.dp2px(context, height);
+//            layoutParams1 = new LayoutParams(ConvertUtils.dp2px(context, layoutwidth),
+//                    ConvertUtils.dp2px(context, height));
+            setGravity(Gravity.CENTER);
             setLayoutParams(layoutParams1);
         } else {
             layoutParams1 = getLayoutParams();
+            setGravity(Gravity.CENTER);
             Log.e("layoutparams", ConvertUtils.px2dp(
-                    context, layoutParams1.width) + "  " + ConvertUtils.dp2px(context, layoutParams1.height));
+                    context, layoutParams1.width) + "  " + ConvertUtils.px2dp(context, layoutParams1.height));
             width = layoutParams1.width - 1;
             height = layoutParams1.height;
         }
+
         textlist = new ArrayList<>();
         tabBtn1 = new TabBtn(context, width, height, chooseColor, unchooseColor, list, false);
         tabBtn2 = new TabBtn(context, width, height, chooseColor, unchooseColor, list, true);

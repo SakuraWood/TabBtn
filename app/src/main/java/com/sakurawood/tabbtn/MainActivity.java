@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
 //                add("huhu");
             }
         };
-        tabBtn.setWidth(300).setHeight(60)
+        tabBtn
+                .setWidth(240).setHeight(60)
                 .setChooseColor(Color.RED)
                 .setUnchooseColor(Color.BLUE).setList(list).show();
         tabBtn.setOnItemClickListener(new TabContainer.OnItemClickListener() {
